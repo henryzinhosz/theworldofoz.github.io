@@ -1,60 +1,272 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    
-    <title>Hello My World</title>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no"/>
-    <meta name="theme-color" content="#313131">
-    <meta name="theme-color" content="#313131">
-    <meta content="https://media.discordapp.net/attachments/893720071728422962/913566237307588608/magic.png" property="og:image" />
-    <link rel="icon" type="https://media.discordapp.net/attachments/1005939744959647855/1030994986063376414/blue_astro.png" href="https://media.discordapp.net/attachments/1005939744959647855/1030994986063376414/blue_astro.png">
-    <meta content="Um garoto apaixonado por café e livros! Programador Formado em front end, Cursando segurança da informação" property="og:description"/>
-    <meta content="My website with more about me!" property="og:title" />
-    <link href="../../public/main.css" type="text/css" rel="stylesheet">
-    <link rel="icon" href="index.html">  
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Henrysz | Meu Perfil</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="main.css">
     
 </head>
-<style>
-.one-full.column p, .one-full.column h1 { margin: 0; } 
-</style>
-<body>
-  
-    <header class="head">
-     <div class="head_main">
-        <div class="logo_main">
-           <nav class="redirect">
-             <ul class="redirect__list">
-                  <li class="redirect__list redirect__list--item">
-                      <a class="redirect__list--link" href="about">Sobre Mim</a>
-                  </li>
-               </ul>
-             </nav>
+<body class="gradient-bg text-white min-h-screen font-sans">
+    <div class="container mx-auto px-4 py-8">
+        <!-- Header -->
+        <header class="flex justify-between items-center mb-8">
+            <div class="flex items-center">
+                <a href="#" class="text-2xl font-bold mr-4">henrysz.lol</a>
+                <nav class="hidden md:flex space-x-6">
+                    <a href="index" class="hover:text-blue-400">Início</a>
+                    <a href="about" class="hover:text-blue-400">Amigos</a>
+                </nav>
             </div>
+            <div class="flex items-center space-x-4">
+                <button class="bg-blue-600 hover:bg-blue-700 px-4 py-2 rounded-lg font-medium">
+                    Contato
+                </button>
+                <button class="md:hidden text-2xl">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </header>
 
-            <nav class="navigation">
-                <ul class="navigation__list">
-                  
-                    <li class="navigation__list navigation__list--item">
-                      <a class="navigation__list--link" href="https://github.com/henryzinhosz">GitHub</a>
-                      <a class="navigation__list--link" href="https://x.com/ancapaslam">Twitter</a>
-                      <a class="navigation__list--link" href="https://discord.com/users/852683388711469124">Discord</a> 
-                    </li>
+      
+        <section class="mb-12">
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="w-32 h-32 rounded-full bg-gray-700 mb-4 md:mb-0 md:mr-8 overflow-hidden">
+                    <img src="https://via.placeholder.com/128" alt="Profile" class="w-full h-full object-cover">
+                </div>
+                <div class="text-center md:text-left">
+                    <h1 class="text-3xl font-bold mb-2">Henrysz</h1>
+                    <div class="flex justify-center md:justify-start items-center space-x-4 mb-4">
+                        <span class="bg-gray-700 px-3 py-1 rounded-full text-sm">Desenvolvedor</span>
+                        <span class="text-gray-300">Rio de Janeiro, Brasil</span>
+                    </div>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-blue-400 hover:text-blue-300">
+                            <i class="fab fa-discord"></i>
+                        </a>
+                        <a href="#" class="text-blue-400 hover:text-blue-300">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="text-blue-400 hover:text-blue-300">
+                            <i class="fab fa-github"></i>
+                        </a>
+                        <a href="#" class="text-blue-400 hover:text-blue-300">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-                </ul>
-            </nav>
+    
+        <section class="mb-12">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
+               
+                <div class="stat-card p-6 rounded-lg">
+                    <div class="flex justify-between items-center mb-4">
+                        <h3 class="text-lg font-medium">Projetos</h3>
+                        <span class="text-2xl font-bold text-green-400">24</span>
+                    </div>
+                    <div class="progress-bar bg-gray-700">
+                        <div class="progress-fill bg-green-500" style="width: 75%"></div>
+                    </div>
+                </div>
+                
+           
+                <div class="stat-card p-6 rounded-lg">
+                    <div class="flex justify-between items-center mb-4">
+                        <h3 class="text-lg font-medium">Experiência</h3>
+                        <span class="text-2xl font-bold text-blue-400">5+</span>
+                    </div>
+                    <div class="progress-bar bg-gray-700">
+                        <div class="progress-fill bg-blue-500" style="width: 42%"></div>
+                    </div>
+                </div>
+                
+               
+                <div class="stat-card p-6 rounded-lg">
+                    <div class="flex justify-between items-center mb-4">
+                        <h3 class="text-lg font-medium">Linguagens</h3>
+                        <span class="text-2xl font-bold text-purple-400">8</span>
+                    </div>
+                    <div class="progress-bar bg-gray-700">
+                        <div class="progress-fill bg-purple-500" style="width: 63%"></div>
+                    </div>
+                </div>
+                
+        
+                <div class="stat-card p-6 rounded-lg">
+                    <div class="flex justify-between items-center mb-4">
+                        <h3 class="text-lg font-medium">Comunidade</h3>
+                        <span class="text-2xl font-bold text-yellow-400">500+</span>
+                    </div>
+                    <div class="progress-bar bg-gray-700">
+                        <div class="progress-fill bg-yellow-500" style="width: 38%"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+  
+        <section class="mb-8">
+            <div class="flex border-b border-gray-700">
+                <button class="tab-btn px-6 py-3 font-medium text-gray-400 hover:text-white" data-tab="about">
+                    Sobre Mim
+                </button>
+                <button class="tab-btn px-6 py-3 font-medium text-gray-400 hover:text-white" data-tab="projects">
+                    Projetos
+                </button>
+            </div>
+        </section>
+
+        <div id="about" class="tab-content">
+            <div class="bg-gray-800 p-6 rounded-lg">
+                <h2 class="text-2xl font-bold mb-4">Sobre Mim</h2>
+                <p class="mb-4">Olá! Eu sou Henrysz, um desenvolvedor apaixonado por tecnologia e criação de soluções inovadoras. Com mais de 5 anos de experiência na área, já trabalhei em diversos projetos desafiadores.</p>
+                
+                <h3 class="text-xl font-bold mb-2 mt-6">Habilidades</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+                    <div>
+                        <div class="flex justify-between mb-1">
+                            <span>JavaScript</span>
+                            <span>90%</span>
+                        </div>
+                        <div class="progress-bar bg-gray-700">
+                            <div class="progress-fill bg-blue-500" style="width: 90%"></div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="flex justify-between mb-1">
+                            <span>HTML/CSS</span>
+                            <span>95%</span>
+                        </div>
+                        <div class="progress-bar bg-gray-700">
+                            <div class="progress-fill bg-green-500" style="width: 95%"></div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="flex justify-between mb-1">
+                            <span>React</span>
+                            <span>85%</span>
+                        </div>
+                        <div class="progress-bar bg-gray-700">
+                            <div class="progress-fill bg-purple-500" style="width: 85%"></div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="flex justify-between mb-1">
+                            <span>Node.js</span>
+                            <span>80%</span>
+                        </div>
+                        <div class="progress-bar bg-gray-700">
+                            <div class="progress-fill bg-yellow-500" style="width: 80%"></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <h3 class="text-xl font-bold mb-2">Experiência</h3>
+                <div class="space-y-4">
+                    <div class="border-l-2 border-blue-500 pl-4 py-1">
+                        <h4 class="font-bold">Desenvolvedor Sênior</h4>
+                        <p class="text-gray-400">Tech Solutions Inc. • 2020 - Presente</p>
+                    </div>
+                    <div class="border-l-2 border-blue-500 pl-4 py-1">
+                        <h4 class="font-bold">Desenvolvedor Front-end</h4>
+                        <p class="text-gray-400">Digital Agency • 2018 - 2020</p>
+                    </div>
+                </div>
+            </div>
         </div>
 
-    </header>
+      
+        <div id="projects" class="tab-content">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="bg-gray-800 p-6 rounded-lg">
+                    <h3 class="text-xl font-bold mb-2">Portfólio Interativo</h3>
+                    <p class="text-gray-400 mb-4">Um portfólio moderno com animações e interações suaves.</p>
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <span class="bg-blue-900 text-blue-300 px-2 py-1 rounded text-xs">React</span>
+                        <span class="bg-purple-900 text-purple-300 px-2 py-1 rounded text-xs">Framer Motion</span>
+                        <span class="bg-green-900 text-green-300 px-2 py-1 rounded text-xs">Tailwind CSS</span>
+                    </div>
+                    <a href="#" class="text-blue-400 hover:text-blue-300">Ver Projeto →</a>
+                </div>
+                
+                <div class="bg-gray-800 p-6 rounded-lg">
+                    <h3 class="text-xl font-bold mb-2">App de Gerenciamento</h3>
+                    <p class="text-gray-400 mb-4">Aplicativo completo para gerenciamento de tarefas e projetos.</p>
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <span class="bg-yellow-900 text-yellow-300 px-2 py-1 rounded text-xs">Node.js</span>
+                        <span class="bg-blue-900 text-blue-300 px-2 py-1 rounded text-xs">React Native</span>
+                        <span class="bg-gray-900 text-gray-300 px-2 py-1 rounded text-xs">MongoDB</span>
+                    </div>
+                    <a href="#" class="text-blue-400 hover:text-blue-300">Ver Projeto →</a>
+                </div>
+                
+                <div class="bg-gray-800 p-6 rounded-lg">
+                    <h3 class="text-xl font-bold mb-2">Site de Comunidade</h3>
+                    <p class="text-gray-400 mb-4">Plataforma para conectar desenvolvedores e designers.</p>
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <span class="bg-green-900 text-green-300 px-2 py-1 rounded text-xs">Vue.js</span>
+                        <span class="bg-red-900 text-red-300 px-2 py-1 rounded text-xs">Firebase</span>
+                        <span class="bg-purple-900 text-purple-300 px-2 py-1 rounded text-xs">GraphQL</span>
+                    </div>
+                    <a href="#" class="text-blue-400 hover:text-blue-300">Ver Projeto →</a>
+                </div>
+                
+                <div class="bg-gray-800 p-6 rounded-lg">
+                    <h3 class="text-xl font-bold mb-2">Ferramenta de Design</h3>
+                    <p class="text-gray-400 mb-4">Editor online para criação de mockups e protótipos.</p>
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <span class="bg-blue-900 text-blue-300 px-2 py-1 rounded text-xs">TypeScript</span>
+                        <span class="bg-pink-900 text-pink-300 px-2 py-1 rounded text-xs">Canvas API</span>
+                        <span class="bg-indigo-900 text-indigo-300 px-2 py-1 rounded text-xs">WebGL</span>
+                    </div>
+                    <a href="#" class="text-blue-400 hover:text-blue-300">Ver Projeto →</a>
+                </div>
+            </div>
+        </div>
 
-<img id="imageAvatar">
+   
+        <footer class="mt-12 pt-8 border-t border-gray-700 text-center text-gray-400">
+            <div class="mb-4">
+                <a href="#" class="mx-2 hover:text-white">Termos</a>
+                <a href="#" class="mx-2 hover:text-white">Privacidade</a>
+                <a href="#" class="mx-2 hover:text-white">Contato</a>
+            </div>
+            <p>© 2023 henrysz.lol - Todos os direitos reservados</p>
+        </footer>
+    </div>
 
-<div class="name">
-  <a>Henryxd</a>
-</div>
+    <script>
 
+        const tabButtons = document.querySelectorAll('.tab-btn');
+        const tabContents = document.querySelectorAll('.tab-content');
 
+        tabButtons.forEach(button => {
+            button.addEventListener('click', () => {
+              
+                tabButtons.forEach(btn => {
+                    btn.classList.remove('border-b-2', 'border-blue-500', 'text-blue-400');
+                    btn.classList.add('text-gray-400');
+                });
+                tabContents.forEach(content => {
+                    content.classList.remove('active');
+                });
+
+         
+                button.classList.add('border-b-2', 'border-blue-500', 'text-blue-400');
+                button.classList.remove('text-gray-400');
+                const tabId = button.getAttribute('data-tab');
+                document.getElementById(tabId).classList.add('active');
+            });
+        });
+
+      
+    </script>
 </body>
-
-<script src="index.js"></script>
 </html>
