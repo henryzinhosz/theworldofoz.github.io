@@ -25,7 +25,6 @@
         
         </header>
 
-      
         <section class="mb-12">
             <div class="flex flex-col md:flex-row items-center">
                 <div class="w-32 h-32 rounded-full bg-gray-700 mb-4 md:mb-0 md:mr-8 overflow-hidden">
@@ -57,6 +56,9 @@
 
         <section class="mb-8">
             <div class="flex border-b border-gray-700">
+                <button class="tab-btn px-6 py-3 font-medium border-b-2 border-blue-500 text-blue-400" data-tab="friends">
+                    Amigos
+                </button>
                 <button class="tab-btn px-6 py-3 font-medium text-gray-400 hover:text-white" data-tab="about">
                     Sobre Mim
                 </button>
@@ -65,6 +67,115 @@
                 </button>
             </div>
         </section>
+
+        <!-- Friends Tab Content -->
+        <div id="friends" class="tab-content active">
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+                <!-- Amigo 1 -->
+                <div class="friend-card bg-gray-800 rounded-lg overflow-hidden">
+                    <div class="p-4">
+                        <div class="flex items-center mb-4">
+                            <div class="w-12 h-12 rounded-full bg-gray-700 mr-3 overflow-hidden">
+                                <img src="https://via.placeholder.com/48" alt="Friend" class="w-full h-full object-cover">
+                            </div>
+                            <div>
+                                <h3 class="text-lg font-bold">Lucas#1234</h3>
+                                <p class="text-sm text-gray-400">Desenvolvedor Front-end</p>
+                            </div>
+                        </div>
+                        <div class="flex justify-center space-x-3">
+                            <a href="#" class="text-blue-400 hover:text-blue-300">
+                                <i class="fab fa-github"></i>
+                            </a>
+                            <a href="#" class="text-blue-400 hover:text-blue-300">
+                                <i class="fab fa-twitter"></i>
+                            </a>
+                            <a href="#" class="text-blue-400 hover:text-blue-300">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Amigo 2 -->
+                <div class="friend-card bg-gray-800 rounded-lg overflow-hidden">
+                    <div class="p-4">
+                        <div class="flex items-center mb-4">
+                            <div class="w-12 h-12 rounded-full bg-gray-700 mr-3 overflow-hidden">
+                                <img src="https://via.placeholder.com/48" alt="Friend" class="w-full h-full object-cover">
+                            </div>
+                            <div>
+                                <h3 class="text-lg font-bold">Ana#5678</h3>
+                                <p class="text-sm text-gray-400">Designer UI/UX</p>
+                            </div>
+                        </div>
+                        <div class="flex justify-center space-x-3">
+                            <a href="#" class="text-blue-400 hover:text-blue-300">
+                                <i class="fab fa-behance"></i>
+                            </a>
+                            <a href="#" class="text-blue-400 hover:text-blue-300">
+                                <i class="fab fa-dribbble"></i>
+                            </a>
+                            <a href="#" class="text-blue-400 hover:text-blue-300">
+                                <i class="fab fa-linkedin"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Amigo 3 -->
+                <div class="friend-card bg-gray-800 rounded-lg overflow-hidden">
+                    <div class="p-4">
+                        <div class="flex items-center mb-4">
+                            <div class="w-12 h-12 rounded-full bg-gray-700 mr-3 overflow-hidden">
+                                <img src="https://via.placeholder.com/48" alt="Friend" class="w-full h-full object-cover">
+                            </div>
+                            <div>
+                                <h3 class="text-lg font-bold">Pedro#9012</h3>
+                                <p class="text-sm text-gray-400">Back-end Developer</p>
+                            </div>
+                        </div>
+                        <div class="flex justify-center space-x-3">
+                            <a href="#" class="text-blue-400 hover:text-blue-300">
+                                <i class="fab fa-github"></i>
+                            </a>
+                            <a href="#" class="text-blue-400 hover:text-blue-300">
+                                <i class="fab fa-twitch"></i>
+                            </a>
+                            <a href="#" class="text-blue-400 hover:text-blue-300">
+                                <i class="fab fa-youtube"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Amigo 4 -->
+                <div class="friend-card bg-gray-800 rounded-lg overflow-hidden">
+                    <div class="p-4">
+                        <div class="flex items-center mb-4">
+                            <div class="w-12 h-12 rounded-full bg-gray-700 mr-3 overflow-hidden">
+                                <img src="https://via.placeholder.com/48" alt="Friend" class="w-full h-full object-cover">
+                            </div>
+                            <div>
+                                <h3 class="text-lg font-bold">Marina#3456</h3>
+                                <p class="text-sm text-gray-400">Full Stack Developer</p>
+                            </div>
+                        </div>
+                        <div class="flex justify-center space-x-3">
+                            <a href="#" class="text-blue-400 hover:text-blue-300">
+                                <i class="fab fa-gitlab"></i>
+                            </a>
+                            <a href="#" class="text-blue-400 hover:text-blue-300">
+                                <i class="fab fa-twitter"></i>
+                            </a>
+                            <a href="#" class="text-blue-400 hover:text-blue-300">
+                                <i class="fab fa-dev"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
 
           <!-- About Tab Content -->
         <div id="about" class="tab-content">
