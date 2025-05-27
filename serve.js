@@ -1,29 +1,59 @@
-const express = require('express')
-const app = express()
+// server.js
+require('dotenv').config();
+const express = require('express');
+const axios = require('axios');
+const cors = require('cors');
 
-app.use('/public', express.static(__dirname + '/public'));
+const app = express();
+const PORT = process.env.PORT || 3000;
 
-app.get('/', (req, res) => {
-  app.use(express.static(__dirname + '/public/main.css'));
-  res.sendFile('index.html', { root: __dirname })
-})
+// Configurações
+app.use(cors());
+app.use(express.json());
 
-app.get('/about', (req, res) => {
-  app.use(express.static(__dirname + '/public/about.css'));
-  res.sendFile('about.html', { root: __dirname })
-})
+// Variável para cache dos dados
+let userCache = {};
+const CACHE_EXPIRATION = 300000; // 5 minutos
 
-app.get('/index.js', (req, res) => {
-  res.sendFile('index.js', { root: __dirname })
-})
+// Rota para buscar dados do usuário
+app.get('/api/discord/user/:userId', async (req, res) => {
+    const { userId } = req.params;
+    const token = process.env.DISCORD_BOT_TOKEN;
 
-app.get('/aboutIndex.js', (req, res) => {
-  res.sendFile('aboutIndex.js', { root: __dirname })
-})
+    // Verifica se temos dados em cache recentes
+    if (userCache[userId] && (Date.now() - userCache[userId].timestamp < CACHE_EXPIRATION)) {
+        return res.json(userCache[userId].data);
+    }
 
-cors: {
-origin: [' https://henryzinhosz.github.io/ ', ' https://pfpfinder.com/api/discord/user/ '],
-methods: 'GET,HEAD,PUT,PATCH,DELETE',
-},
-  
-app.listen(3000, '0.0.0.0');
+    try {
+        const response = await axios.get(`https://discord.com/api/v10/users/${userId}`, {
+            headers: {
+                'Authorization': `Bot ${token}`
+            }
+        });
+
+        const userData = {
+            username: response.data.username,
+            global_name: response.data.global_name || response.data.username,
+            avatar: response.data.avatar 
+                ? `https://cdn.discordapp.com/avatars/${userId}/${response.data.avatar}.png?size=256`
+                : `https://cdn.discordapp.com/embed/avatars/${response.data.discriminator % 5}.png`,
+            updatedAt: new Date().toISOString()
+        };
+
+        // Atualiza cache
+        userCache[userId] = {
+            data: userData,
+            timestamp: Date.now()
+        };
+
+        res.json(userData);
+    } catch (error) {
+        console.error('Erro ao buscar usuário:', error.response?.data || error.message);
+        res.status(500).json({ error: 'Não foi possível obter dados do usuário' });
+    }
+});
+
+app.listen(PORT, () => {
+    console.log(`Servidor rodando na porta ${PORT}`);
+});
