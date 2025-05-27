@@ -1,4 +1,4 @@
-// server.js
+
 require('dotenv').config();
 const express = require('express');
 const axios = require('axios');
@@ -7,20 +7,20 @@ const cors = require('cors');
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-// Configurações
+
 app.use(cors());
 app.use(express.json());
 
-// Variável para cache dos dados
-let userCache = {};
-const CACHE_EXPIRATION = 300000; // 5 minutos
 
-// Rota para buscar dados do usuário
+let userCache = {};
+const CACHE_EXPIRATION = 300000; 
+
+
 app.get('/api/discord/user/:userId', async (req, res) => {
     const { userId } = req.params;
     const token = process.env.DISCORD_BOT_TOKEN;
 
-    // Verifica se temos dados em cache recentes
+
     if (userCache[userId] && (Date.now() - userCache[userId].timestamp < CACHE_EXPIRATION)) {
         return res.json(userCache[userId].data);
     }
@@ -41,7 +41,7 @@ app.get('/api/discord/user/:userId', async (req, res) => {
             updatedAt: new Date().toISOString()
         };
 
-        // Atualiza cache
+ 
         userCache[userId] = {
             data: userData,
             timestamp: Date.now()
