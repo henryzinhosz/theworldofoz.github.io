@@ -48,12 +48,8 @@ class DiscordUserWidget {
         `;
     }
 }
-
-apiUrl: 'https://sua-api.onrender.com/api/discord/user'
-
-// Uso:
-// new DiscordUserWidget({
-//     userId: 'SEU_USER_ID_DISCORD',
-//     apiUrl: 'http://seu-site.com/api/discord/user',
-//     elementId: 'discord-widget'
-// });
+new DiscordUserWidget({
+    userId: 'SEU_USER_ID_DISCORD',
+     apiUrl: 'http://seu-site.com/api/discord/user',
+    elementId: 'discord-widget'
+});
