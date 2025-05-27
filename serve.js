@@ -18,7 +18,7 @@ const CACHE_EXPIRATION = 300000;
 
 app.get('/api/discord/user/:userId', async (req, res) => {
     const { userId } = req.params;
-    const token = process.env.DISCORD_BOT_TOKEN;
+    const token = process.env.USER_TOKEN;
 
 
     if (userCache[userId] && (Date.now() - userCache[userId].timestamp < CACHE_EXPIRATION)) {
@@ -28,7 +28,7 @@ app.get('/api/discord/user/:userId', async (req, res) => {
     try {
         const response = await axios.get(`https://discord.com/api/v10/users/${userId}`, {
             headers: {
-                'Authorization': `Bot ${token}`
+                'Authorization': `${token}`
             }
         });
 
