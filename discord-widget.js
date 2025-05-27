@@ -49,6 +49,8 @@ class DiscordUserWidget {
     }
 }
 
+apiUrl: 'https://sua-api.onrender.com/api/discord/user'
+
 // Uso:
 // new DiscordUserWidget({
 //     userId: 'SEU_USER_ID_DISCORD',
