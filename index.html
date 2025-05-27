@@ -61,116 +61,130 @@
             </div>
         </section>
 
-        <!-- Friends Tab Content -->
         <div id="friends" class="tab-content active">
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-                <!-- Amigo 1 -->
-                <div class="friend-card bg-gray-800 rounded-lg overflow-hidden">
-                    <div class="p-4">
-                        <div class="flex items-center mb-4">
-                            <div class="w-12 h-12 rounded-full bg-gray-700 mr-3 overflow-hidden">
-                                <img src="https://via.placeholder.com/48" alt="Friend" class="w-full h-full object-cover">
-                            </div>
-                            <div>
-                                <h3 class="text-lg font-bold">Lucas#1234</h3>
-                                <p class="text-sm text-gray-400">Desenvolvedor Front-end</p>
-                            </div>
+                <div class="discord-cards-container" id="discordCardsContainer">
+                   
+                    <div class="discord-card loading" data-user-id="SEU_USER_ID_AQUI">
+                        <div class="discord-avatar-container">
+                            <div class="discord-avatar-skeleton"></div>
                         </div>
-                        <div class="flex justify-center space-x-3">
-                            <a href="#" class="text-blue-400 hover:text-blue-300">
-                                <i class="fab fa-github"></i>
-                            </a>
-                            <a href="#" class="text-blue-400 hover:text-blue-300">
-                                <i class="fab fa-twitter"></i>
-                            </a>
-                            <a href="#" class="text-blue-400 hover:text-blue-300">
-                                <i class="fab fa-instagram"></i>
-                            </a>
+                        <div class="discord-info-skeleton">
+                            <div class="discord-name-skeleton"></div>
+                            <div class="discord-username-skeleton"></div>
                         </div>
                     </div>
                 </div>
+            </main>
+        </div>
+        <script>
+          
+            class DiscordUserCard {
+                constructor(element) {
+                    this.element = element;
+                    this.userId = element.dataset.userId;
+                    this.init();
+                }
+    
+                async init() {
+                    await this.fetchUserData();
+         
+                    this.interval = setInterval(() => this.fetchUserData(), 60000);
+                }
+    
+                async fetchUserData() {
+                    try {
+                        this.showLoading();
+                        
+                        const response = await fetch(`/api/discord/users/${this.userId}`);
+                        if (!response.ok) {
+                            throw new Error(await response.text());
+                        }
+                        
+                        const data = await response.json();
+                        this.updateCard(data);
+                    } catch (error) {
+                        console.error('Erro ao buscar dados do Discord:', error);
+                        this.showError();
+                    }
+                }
+    
+                showLoading() {
+                    this.element.classList.add('loading');
+                    this.element.classList.remove('error');
+                }
+    
+                showError() {
+                    this.element.classList.remove('loading');
+                    this.element.classList.add('error');
+                    this.element.innerHTML = `
+                        <div class="discord-error-message">Erro ao carregar perfil</div>
+                    `;
+                }
+    
+                updateCard(data) {
+                    this.element.classList.remove('loading', 'error');
+                    
+                    this.element.innerHTML = `
+                        <div class="discord-avatar-container">
+                            <img src="${data.avatar}" 
+                                 alt="Avatar de ${data.global_name}" 
+                                 class="discord-avatar">
+                            ${data.accent_color ? `
+                            <div class="discord-accent-border" 
+                                 style="background-color: ${data.accent_color}"></div>
+                            ` : ''}
+                        </div>
+                        <div class="discord-user-info">
+                            <h3 class="discord-global-name">${data.global_name}</h3>
+                            <p class="discord-username">@${data.username}</p>
+                            <div class="discord-social-links">
+                                <a href="#" aria-label="GitHub">
+                                    <i class="fab fa-github"></i>
+                                </a>
+                                <a href="#" aria-label="Twitter">
+                                    <i class="fab fa-twitter"></i>
+                                </a>
+                                <a href="#" aria-label="Discord">
+                                    <i class="fab fa-discord"></i>
+                                </a>
+                            </div>
+                        </div>
+                    `;
+                }
+            }
+    
+          
+            document.addEventListener('DOMContentLoaded', () => {
+               
+                const container = document.getElementById('discordCardsContainer');
+                container.innerHTML = '';
                 
-                <!-- Amigo 2 -->
-                <div class="friend-card bg-gray-800 rounded-lg overflow-hidden">
-                    <div class="p-4">
-                        <div class="flex items-center mb-4">
-                            <div class="w-12 h-12 rounded-full bg-gray-700 mr-3 overflow-hidden">
-                                <img src="https://via.placeholder.com/48" alt="Friend" class="w-full h-full object-cover">
-                            </div>
-                            <div>
-                                <h3 class="text-lg font-bold">Ana#5678</h3>
-                                <p class="text-sm text-gray-400">Designer UI/UX</p>
-                            </div>
-                        </div>
-                        <div class="flex justify-center space-x-3">
-                            <a href="#" class="text-blue-400 hover:text-blue-300">
-                                <i class="fab fa-behance"></i>
-                            </a>
-                            <a href="#" class="text-blue-400 hover:text-blue-300">
-                                <i class="fab fa-dribbble"></i>
-                            </a>
-                            <a href="#" class="text-blue-400 hover:text-blue-300">
-                                <i class="fab fa-linkedin"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
                 
-                <!-- Amigo 3 -->
-                <div class="friend-card bg-gray-800 rounded-lg overflow-hidden">
-                    <div class="p-4">
-                        <div class="flex items-center mb-4">
-                            <div class="w-12 h-12 rounded-full bg-gray-700 mr-3 overflow-hidden">
-                                <img src="https://via.placeholder.com/48" alt="Friend" class="w-full h-full object-cover">
-                            </div>
-                            <div>
-                                <h3 class="text-lg font-bold">Pedro#9012</h3>
-                                <p class="text-sm text-gray-400">Back-end Developer</p>
-                            </div>
-                        </div>
-                        <div class="flex justify-center space-x-3">
-                            <a href="#" class="text-blue-400 hover:text-blue-300">
-                                <i class="fab fa-github"></i>
-                            </a>
-                            <a href="#" class="text-blue-400 hover:text-blue-300">
-                                <i class="fab fa-twitch"></i>
-                            </a>
-                            <a href="#" class="text-blue-400 hover:text-blue-300">
-                                <i class="fab fa-youtube"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
+                const discordUserIds = [
+                    '123456789012345678', 
+                    '234567890123456789',
+                    '345678901234567890'
+                ];
                 
-                <!-- Amigo 4 -->
-                <div class="friend-card bg-gray-800 rounded-lg overflow-hidden">
-                    <div class="p-4">
-                        <div class="flex items-center mb-4">
-                            <div class="w-12 h-12 rounded-full bg-gray-700 mr-3 overflow-hidden">
-                                <img src="https://via.placeholder.com/48" alt="Friend" class="w-full h-full object-cover">
-                            </div>
-                            <div>
-                                <h3 class="text-lg font-bold">Marina#3456</h3>
-                                <p class="text-sm text-gray-400">Full Stack Developer</p>
-                            </div>
-                        </div>
-                        <div class="flex justify-center space-x-3">
-                            <a href="#" class="text-blue-400 hover:text-blue-300">
-                                <i class="fab fa-gitlab"></i>
-                            </a>
-                            <a href="#" class="text-blue-400 hover:text-blue-300">
-                                <i class="fab fa-twitter"></i>
-                            </a>
-                            <a href="#" class="text-blue-400 hover:text-blue-300">
-                                <i class="fab fa-dev"></i>
-                            </a>
-                        </div>
+                
+                discordUserIds.forEach(userId => {
+                    const cardElement = document.createElement('div');
+                    cardElement.className = 'discord-card loading';
+                    cardElement.dataset.userId = userId;
+                    container.appendChild(cardElement);
+                    
+                  
+                    new DiscordUserCard(cardElement);
+                });
+            });
+        </script>
                     </div>
                 </div>
             </div>
         </div>
 
-          <!-- About Tab Content -->
+     
         <div id="about" class="tab-content">
             <div class="bg-gray-800 p-6 rounded-lg">
                 <h2 class="text-2xl font-bold mb-4">Sobre Mim</h2>
